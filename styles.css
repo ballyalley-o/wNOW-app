@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    background-color: beige;
+    color: #473247;
+    border-radius: 20px;
+}
+
+h1 {
+    color: beige;
+    font-family: sans-serif;
+    font-style: bold;
+}
+
+.rounded {
+    border-radius: 20px;
+}
+
