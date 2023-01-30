@@ -1,36 +1,51 @@
+//initialize localstorage
+const storage = new Storage();
+
+//get stored loc data
+const weatherLoc = storage.getLocData()
+
 //initialize weather object
-const weather = new Weather("London", "United Kingdom");
+const weather = new Weather(weatherLoc.city, weatherLoc.country);
 
 //initialize UI
 const ui = new UI();
 
-document.addEventListener('DOMContentLoaded', getWeather)
+document.addEventListener("DOMContentLoaded", getWeather);
 
 //change location event
-document.getElementById('w-change-btn').addEventListener('click', (e) => {
-    const city = document.getElementById('city').value
-    const country = document.getElementById('country').value
+document.getElementById("w-change-btn").addEventListener("click", (e) => {
+  const city = document.getElementById("city").value;
+  const country = document.getElementById("country").value;
 
-    weather.changeLocation(city, country)
+  //change loc
+  weather.changeLocation(city, country);
 
-    //get and display weather
-    getWeather()
+  //set loc datas
+  storage.setLocData(city, country)
 
-    //close modal
-    $('#locModal').modal('hide')
+  //get and display weather
+  getWeather();
+
+  //close modal
+  $("#locModal").modal("hide");
+});
+
+
+// //clear cache
+document.getElementById('w-clear-btn').addEventListener('click', (e) => {
+    e.preventDefault()
+    window.localStorage.clear()
 })
 
-
 function getWeather() {
-    weather.getWeather()
-        .then(results => {
-            //parse the results
-            console.log(results)
-           ui.paint(results)
+  weather
+    .getWeather()
+    .then((results) => {
+      //parse the results
+      console.log(results);
+      ui.paint(results);
     })
-        .catch(err => console.log(err))
+    .catch((err) => console.log(err));
 }
 
-
-console.log(weather.getWeather())
-
+console.log(weather.getWeather());

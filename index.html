@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
 app.js    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css" />
     <link rel="stylesheet" href="styles.css"/>
     <title>weatherNOW</title>
 </head>
@@ -15,8 +14,8 @@ app.js    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <div class="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
                        <h2 id="w-location"></h2>
                        <p id="w-country" class="badge badge-success"></p>
-                       <h1 class="text-light" id="w-weathermain"></h1>
-                       <p class="text-dark font-weight-lighter" id="w-weatherdesc"></p>
+                       <h1 class="" id="w-weathermain" style="font-size: 3rem"></h1>
+                       <p class="font-weight-lighter" id="w-weatherdesc"></p>
                        <h1 id="w-string"></h1>
                        <h4 id="w-weatherdesc"></h4>
                        <img id="w-icon" />
@@ -26,15 +25,22 @@ app.js    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                         <li class="list-group-item" id="w-feels-like"></li>
                         <li class="list-group-item" id="w-wind"></li>
                        </ul>
-                       <hr>
+                     <br>
                 <button
                     type="button"
-                    class="btn btn-primary"
+                    class="btn btn-secondary"
                     data-toggle="modal"
                     data-target="#locModal"
                     >Change Location
                 </button>
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    id="w-clear-btn"
+                    >Clear Cache
+                </button>
             </div>
+
         </div>
     </div>
     <!-- Modal -->
